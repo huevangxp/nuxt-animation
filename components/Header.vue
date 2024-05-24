@@ -1,92 +1,77 @@
 <template>
-    <div class="banner" ref="banner">
-      <h1 class="white--text text-center">this handing 1</h1>
-      <canvas id="dotsCanvas"></canvas>
+    <div >
+      <v-app-bar
+        fixed
+        app
+        elevation="0"
+        height="100px"
+        class="white"
+      >
+       <v-app-bar-title> <v-img src="/1.png" height="80" width="400"/></v-app-bar-title>
+        <v-spacer />
+        <v-btn text class="teal--text font-weight-bold"> ດາວໂຫຼດ</v-btn>
+        <v-btn text class="teal--text font-weight-bold"> ສະໝັກວຽກ </v-btn>
+        <v-btn text class="teal--text font-weight-bold"> ຜະລິດຕະພັນອອກໃຫມ່ </v-btn>
+        <v-spacer/>
+<!--        <v-btn   class="white&#45;&#45;text primary  font-weight-bold rounded-pill" >{{currentDate}}</v-btn>-->
+
+        <v-btn text class="teal--text">ເຂົ້າສູ່ລະບົບ</v-btn>
+      </v-app-bar>
+
+      <v-app-bar app class="teal " style="margin-top: 100px; height: 6%">
+
+          <v-row>
+            <v-col cols="1">
+                <v-icon color="white" size="30">mdi-bank</v-icon>
+            </v-col>
+            <v-col cols="10" class="d-flex justify-center">
+              <v-btn text   dark to="/"> ໜ້າຫຼັກ </v-btn>
+              <v-btn text   dark to="/about"> ກຽມກັບພວກເຮົາ </v-btn>
+              <v-btn text   dark> ຜະລິດຕະພັນທັງໝົດ</v-btn>
+              <v-btn text   dark> ຕິດຕໍ່ພວກເຮົາ </v-btn>
+              <v-btn text   dark>ບໍລິການອື່ນໆໆ</v-btn>
+            </v-col>
+            <v-col cols="1">
+              <v-btn   class="white primary--text font-weight-bold rounded-pill" >{{currentDateTime}}</v-btn>
+            </v-col>
+          </v-row>
+      </v-app-bar>
+
+      <v-app-bar elevation="0" app class="yellow" height="10%" style="margin-top: 95px; z-index: 99" t></v-app-bar>
+
     </div>
   </template>
-  
-  <script>
-  export default {
-    layout:'Black',
-    mounted() {
-      const banner = this.$refs.banner;
-      const canvas = document.getElementById('dotsCanvas');
-      canvas.width = banner.offsetWidth;
-      canvas.height = banner.offsetHeight;
-      const ctx = canvas.getContext('2d');
-      let dots = [];
-      const arrayColors = ['#eee', '#545454', '#596d91', '#bb5a68', '#696541'];
-  
-      for (let index = 0; index < 50; index++) {
-        dots.push({
-          x:  Math.floor(Math.random() * canvas.width),
-          y:  Math.floor(Math.random() * canvas.height),
-          size: Math.random() * 3 + 5,
-          color: arrayColors[Math.floor(Math.random()* 5)]
-        });
-      }
-  
-      const drawDots = () => {
-        dots.forEach(dot => {
-          ctx.fillStyle = dot.color;
-          ctx.beginPath();
-          ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI*2);
-          ctx.fill();
-        })
-      }
-  
-      drawDots();
-  
-      banner.addEventListener('mousemove', (event) => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawDots();
-        let mouse = {
-          x:  event.pageX - banner.getBoundingClientRect().left,
-          y:  event.pageY - banner.getBoundingClientRect().top
-        }
-        dots.forEach(dot => {
-          let distance = Math.sqrt((mouse.x - dot.x) ** 2 + (mouse.y - dot.y) ** 2);
-          if(distance < 300){
-            ctx.strokeStyle = dot.color;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(dot.x, dot.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.stroke();
-          }
-        })
-      });
-  
-      banner.addEventListener('mouseout', () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawDots();
-      });
-  
-      window.addEventListener('resize', () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        canvas.width = banner.offsetWidth;
-        canvas.height = banner.offsetHeight;
-  
-        dots = [];
-        for (let index = 0; index < 50; index++) {
-          dots.push({
-            x:  Math.floor(Math.random() * canvas.width),
-            y:  Math.floor(Math.random() * canvas.height),
-            size: Math.random() * 3 + 5,
-            color: arrayColors[Math.floor(Math.random()* 5)]
-          });
-        }
-        drawDots();
-      });
+
+
+<script>
+
+export default {
+  data() {
+    return {
+      currentDateTime: '',
+      currentDate: '',
+    };
+  },
+  mounted() {
+    this.updateDateTime();
+    setInterval(this.updateDateTime, 1000); // Update every second
+  },
+  methods: {
+    updateDateTime() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+      const day = String(now.getDate()).padStart(2, '0');
+      this.currentDate = `${year}/${month}/${day}`;
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      this.currentDateTime = `${hours}:${minutes}:${seconds}`;
     }
   }
-  </script>
-  
-  <style scoped>
-  .banner {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: teal;
-  }
-  </style>
+};
+</script>
+
+<style scoped>
+
+</style>
