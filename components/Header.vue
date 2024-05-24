@@ -13,7 +13,6 @@
         <v-btn text class="teal--text font-weight-bold"> ສະໝັກວຽກ </v-btn>
         <v-btn text class="teal--text font-weight-bold"> ຜະລິດຕະພັນອອກໃຫມ່ </v-btn>
         <v-spacer/>
-<!--        <v-btn   class="white&#45;&#45;text primary  font-weight-bold rounded-pill" >{{currentDate}}</v-btn>-->
 
         <v-btn text class="teal--text">ເຂົ້າສູ່ລະບົບ</v-btn>
       </v-app-bar>
