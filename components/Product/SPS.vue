@@ -1,31 +1,37 @@
 <template>
   <div>
-    <v-card max-width="1000px" elevation="0" class="mx-auto">
-      <v-row>
-        <v-col v-for="item in items" :key="item" cols="1">
-          <v-card  elevation="0">
-            <v-img :src="item.img"  ></v-img>
+    <v-container>
+      <v-row justify="center">
+        <v-col v-for="item in items" :key="item.img" cols="1">
+          <v-card elevation="0">
+            <v-img :src="item.img" class="ma-2" contain  />
           </v-card>
         </v-col>
       </v-row>
-    </v-card>
+    </v-container>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
+  data() {
     return {
-      items:[
-        {img:'https://www.apb.com.la/images/7.jpg'},
-        {img:'https://www.apb.com.la/images/thippaya.jpg'},
-        {img:'https://www.apb.com.la/images/12.jpg'},
-        {img:'https://www.apb.com.la/images/11.jpg'},
-        {img:'https://www.apb.com.la/images/10.jpg'},
-        {img:'https://www.apb.com.la/images/9.jpg'},
-        {img:'https://www.apb.com.la/images/8.jpg'},
-      ]
-    }
-  }
-}
+      items: [
+        { img: 'https://www.apb.com.la/images/7.jpg' },
+        { img: 'https://www.apb.com.la/images/thippaya.jpg' },
+        { img: 'https://www.apb.com.la/images/12.jpg' },
+        { img: 'https://www.apb.com.la/images/11.jpg' },
+        { img: 'https://www.apb.com.la/images/10.jpg' },
+        { img: 'https://www.apb.com.la/images/9.jpg' },
+        { img: 'https://www.apb.com.la/images/8.jpg' },
+      ],
+    };
+  },
+};
 </script>
+
+<style>
+.v-img {
+  object-fit: contain;
+}
+</style>

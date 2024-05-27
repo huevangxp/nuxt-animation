@@ -3,7 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - animation',
+    // titleTemplate: '%s - animation',
+    titleTemplate: 'ທະນາຄານສົ່ງເສີມກະສິກຳ',
     title: 'animation',
     htmlAttrs: {
       lang: 'en'
@@ -15,7 +16,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/icon.jpg' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100;200;300;400;500;600&display=swap'},
       { rel:"stylesheet", href:"https://fonts.googleapis.com/css2?family=Jaini+Purva&display=swap" }
     ]

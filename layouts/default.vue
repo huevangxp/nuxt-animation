@@ -3,16 +3,17 @@
 
   <Header/>
     <v-main>
-      <div>
+      <div class="add2">
         <Nuxt />
       </div>
     </v-main>
 
     <v-footer
-      :absolute="!fixed"
-      app
+width="100%"
+color="primary"
+height="500px"
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+     <Footer/>
     </v-footer>
   </v-app>
 </template>
@@ -51,4 +52,5 @@ export default {
   font-family: "Noto Sans Lao", sans-serif;
   /* font-size:40px */
 }
+
 </style>
