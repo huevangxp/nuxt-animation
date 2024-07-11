@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div data-aos="fade-up" data-aos-duration="1500" data-aos-delay='500'>
     <!-- <h1 class="my-5 py-5 font-weight-bold">ສິ່ງທີ່ຫນ້າສົນໃຈ</h1> -->
 
     <v-card class=" mb-4 ">

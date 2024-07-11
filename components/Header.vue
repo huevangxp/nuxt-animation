@@ -17,7 +17,7 @@
         <v-btn text class="teal--text">ເຂົ້າສູ່ລະບົບ</v-btn>
       </v-app-bar>
 
-      <v-app-bar app   class="add2 teal" style="margin-top: 100px; height: 6% ;">
+      <v-app-bar app   class="add2 teal" style="margin-top: 100px; height: 6% ;" >
 
           <v-row>
             <v-col cols="1">

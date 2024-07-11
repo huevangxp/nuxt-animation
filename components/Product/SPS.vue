@@ -4,7 +4,7 @@
       <v-row justify="center">
         <v-col v-for="item in items" :key="item.img" cols="1">
           <v-card elevation="0">
-            <v-img :src="item.img" class="ma-2" contain  />
+            <v-img :src="item.img" class="ma-2"  />
           </v-card>
         </v-col>
       </v-row>

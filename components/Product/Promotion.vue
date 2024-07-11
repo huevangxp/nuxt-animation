@@ -6,9 +6,9 @@
     </div>
     <v-row>
 
-      <v-col v-for="item in 1 " cols="12" md="6">
+      <v-col v-for="item in 1 " :key="item" cols="12" md="6">
         <v-card elevation="0">
-          <v-img src="https://www.apb.com.la/images/newdir2022b.jpg">
+          <v-img src="https://www.apb.com.la/images/newdir2022b.jpg" data-aos="zoom-in" >
 
           </v-img>
           <p class="pt-4">ໂປຣໂມຊັນ ບັດ......</p>

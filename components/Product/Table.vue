@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="down-up">
     <v-card  elevation="1"  >
      <div class="primary">
        <h1 class="white--text my-5 mx-5 py-4 text-center">ອັດຕາແລກປ່ຽນປະຈຳວັນ</h1>
@@ -146,5 +146,12 @@ export default {
       console.log(this.date)
     }
   },
+  mounted() {
+    const gsap = this.$gsap.timeline({ delay: 0.4, pause: true });
+    gsap.from('.down-up', { y: '200', autoAlpha: 0, stagger:0.2 ,duration: 1});
+    gsap.from('.text-p', { x: '100', autoAlpha: 0, stagger:0.25, ease: 'back.out(1.7)' ,duration: 1});
+    gsap.from('.h1', { y: '-100', autoAlpha: 0, stagger:0.25, ease: 'back.out(1.7)' ,duration: 1});
+    gsap.from('.name', { y: '100', x:'100', autoAlpha: 0, stagger:0.25, ease: 'back.out(1.7)' ,duration: 1});
+}
 }
 </script>

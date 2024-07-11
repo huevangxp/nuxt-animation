@@ -12,6 +12,7 @@
 width="100%"
 color="primary"
 height="500px"
+data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500"
     >
      <Footer/>
     </v-footer>
